@@ -3,21 +3,27 @@
 
 # LibreCode Agent Skills
 
-Catálogo público de Skills reutilizáveis para inicialização, auditoria e manutenção de projetos da LibreCode. O repositório contém um **plugin Git-backed**: as Skills, referências, testes e manifestos fazem parte da mesma unidade de distribuição. O repositório da [LibreSign](https://github.com/LibreSign/agent-skills) foi usado como referência de arquitetura, mas não é uma dependência nem uma cópia deste catálogo.
+**Public, Git-backed agent workflows for open-source software engineering.** This repository contains reusable skills, references, tests, and marketplace manifests as one installable plugin. The [LibreSign Agent Skills](https://github.com/LibreSign/agent-skills) repository informed its architecture but is neither copied nor required.
 
-> **English:** Public LibreCode Coop agent-skills plugin for creating and auditing software projects. Skill discovery metadata includes English and Portuguese. Operational guidance is maintained in Brazilian Portuguese. Follow the requesting user's language when producing answers.
+> **Português:** este repositório é dedicado a Skills públicas de engenharia e projetos de software livre. Processos administrativos, comerciais e operacionais privados da LibreCode têm um catálogo interno separado, com acesso restrito.
 
-## Catálogo
+## Public scope and language
 
-| Skill | Objetivo |
+Public skills cover project creation, open-source collaboration, testing, reproducibility, security, repository governance, and non-destructive audits. **Never include internal business processes, customer records, credentials, private infrastructure identifiers, or proprietary operating procedures in this public plugin.** Keeping text in Portuguese does not make it private; visibility is a content and access-control decision.
+
+English is preferred for **new public-facing instructions** to support international contributors. Skills retain bilingual discovery keywords, may respond in the user's language, and must preserve one authoritative engineering contract. The existing project-bootstrap Skill retains its reviewed Portuguese detailed instructions pending a behavior-verified translation; it is not a second language-specific Skill. See [language policy](references/language-policy.md).
+
+## Skills
+
+| Skill | Purpose |
 | --- | --- |
-| [librecode-project-bootstrap](skills/librecode-project-bootstrap/SKILL.md) | Inicializar projetos PHP, Python, JavaScript e Go no modo CLI mínimo; orientar outras arquiteturas e auditar projetos existentes sem alterações destrutivas. |
+| [librecode-project-bootstrap](skills/librecode-project-bootstrap/SKILL.md) | Bootstrap and audit PHP, Python, JavaScript and Go CLI projects with evidence-based engineering controls; guide other language/framework configurations without destructive overwrites. |
 
-Nova Skill só deve entrar no catálogo se possuir gatilho e resultado distintos dos existentes. Consulte [critérios de admissão](references/skill-catalog.md).
+Admit additional Skills only when their trigger, output, and permission boundary are distinct. See [catalog admission](references/skill-catalog.md).
 
-## Instalação e atualização
+## Install and update from Git
 
-**Fonte canônica:** `LibreCodeCoop/agent-skills`, instalado como um único plugin por um cliente que suporte marketplaces Git. No Codex com suporte a plugins:
+**Canonical source:** `LibreCodeCoop/agent-skills`. For compatible Codex clients:
 
 ```sh
 codex plugin marketplace add LibreCodeCoop/agent-skills
@@ -25,17 +31,13 @@ codex plugin marketplace list
 codex plugin marketplace upgrade
 ```
 
-Use o marketplace do cliente para instalar **LibreCode Agent Skills**. A atualização do catálogo **não prova** que a cópia instalada em cache ou o ChatGPT web foi atualizada: confirme a versão do `plugin.json`, a revisão instalada e o acesso à Skill. Para outros clientes, consulte [distribuição](references/distribution.md). Não instale um ZIP avulso em paralelo ao plugin; o pacote isolado pode divergir da fonte Git e de suas referências.
+Install the complete **LibreCode Agent Skills** plugin through the supported marketplace. A marketplace refresh does **not** guarantee that cached plugin installations or ChatGPT web were updated. Verify the installed commit, version and available Skills. Other clients may require a different supported installation path; see [distribution](references/distribution.md). Do not install independent single-Skill ZIP snapshots alongside the Git-backed plugin.
 
-Nenhuma instalação, sincronização, release, deploy ou alteração de regras é disparada automaticamente pela presença desses arquivos.
+## Engineering rules and licensing
 
-## Padrões institucionais e idioma
+The authoritative GitHub governance policy and shared workflow catalog live at [LibreCodeCoop/.github](https://github.com/LibreCodeCoop/.github). This plugin references those sources instead of copying their policy state. New LibreCode-owned projects default to **AGPL-3.0-or-later**. Alternative licenses require an explicit compatible decision; existing projects are not silently relicensed.
 
-- A fonte de verdade para **governança de repositórios e workflows** é [`LibreCodeCoop/.github`](https://github.com/LibreCodeCoop/.github); este catálogo descreve como aplicar os controles e consultar a política, sem mantê-la em duplicidade.
-- Licença padrão de projetos próprios LibreCode: **AGPL-3.0-or-later**. Escolhas alternativas exigem decisão explícita e verificação de compatibilidade; a auditoria preserva licenças existentes.
-- **Português brasileiro** é o idioma principal da documentação e dos fluxos internos. Nomes técnicos e identificadores permanecem em inglês; metadados de descoberta e orientações de instalação incluem inglês. A resposta deve usar o idioma do solicitante. [Política de idioma](references/language-policy.md).
-
-## Qualidade e contribuições
+## Verification
 
 ```sh
 python3 -m unittest discover -s tests -v
@@ -44,6 +46,4 @@ python3 skills/librecode-project-bootstrap/scripts/audit_project.py . --strict
 python3 scripts/check_workflows.py .
 ```
 
-A CI também executa `reuse lint`, Actionlint, Zizmor, varredura de segredos, verificação de commits e um agregador que considera falhas, cancelamentos e skips. Testes de comportamento com modelos e integração em projetos de terceiros exigem avaliações adicionais, não substituídas por CI verde. Consulte [CONTRIBUTING.md](CONTRIBUTING.md), [SECURITY.md](SECURITY.md) e [avaliação do catálogo](references/skill-catalog.md).
-
-Este catálogo não faz deploy nem merge de forma automática.
+GitHub CI additionally runs REUSE, Actionlint, Zizmor, secret scanning, signed-commit/DCO validation and an actual fail-closed `ci-required` aggregator. CI passing does not prove product readiness or effective branch protection. Review [CONTRIBUTING.md](CONTRIBUTING.md), [SECURITY.md](SECURITY.md), and [catalog admission](references/skill-catalog.md). No automatic merge, deploy, ruleset apply, or release.

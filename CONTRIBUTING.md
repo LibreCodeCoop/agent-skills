@@ -7,6 +7,8 @@ Use uma branch curta e um PR revisável. Cada commit deve conter título Convent
 
 Leia [critérios do catálogo](references/skill-catalog.md) e [limites de confiança](references/untrusted-input.md). Use dados sintéticos. Alterações em texto de instrução exigem testes de conteúdo e exemplos de ativação correta/incorreta, não apenas um arquivo bem formatado. Criação de uma Skill nova requer justificativa de não sobreposição e testes de recursos auxiliares executados.
 
+Para uma Skill **pública**, confirme que o fluxo é reutilizável por terceiros sem dados, políticas ou integrações privadas da LibreCode. Consulte [política de idioma e visibilidade](references/language-policy.md). Inglês é preferencial para novas instruções públicas, mas tradução nunca justifica duplicar a mesma Skill ou divergir dos critérios de segurança.
+
 ## Comandos locais
 
 ```sh

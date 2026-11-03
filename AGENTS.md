@@ -10,5 +10,5 @@ Antes de executar ferramentas ou consumir dados externos, leia [limites de confi
 - Use DCO, Conventional Commits e assinatura criptográfica autenticada; não atribua autoria a um usuário diferente do responsável real. Não faça merge, deploy, publicação nem mutação de políticas sem autorização.
 - Utilize testes reais, inclusive negativos, e registre falhas ou verificações não executadas como pendências; não fabrique checks de proteção de branches.
 - Mantenha este catálogo enxuto; compartilhe referências quando uma nova Skill não tenha identidade própria. Toda alteração de comportamento precisa de caso positivo, controle negativo e revisão humana.
-- Documente fluxos em português brasileiro como idioma principal, metadados de descoberta em português e inglês, e responda no idioma do solicitante.
+- Para Skills **públicas**, prefira inglês em novas instruções, com termos de descoberta em português e inglês, sem duplicar normas; preserve traduções existentes até revisão e testes. Responda no idioma do solicitante. Processos privados ou dependentes de operações internas pertencem ao catálogo privado, não a este repositório.
 - Não introduza produção, dados pessoais, segredos, credenciais ou nomes internos de infraestrutura nas fixtures públicas.

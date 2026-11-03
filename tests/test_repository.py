@@ -79,6 +79,16 @@ class PluginContractTest(unittest.TestCase):
         self.assertIn("@LibreCodeCoop/maintainers", (ROOT / ".github/CODEOWNERS").read_text())
         self.assertTrue((ROOT / "SECURITY.md").is_file())
 
+    def test_public_catalog_excludes_internal_operating_workflows(self):
+        readme = (ROOT / "README.md").read_text()
+        policy = (ROOT / "references/language-policy.md").read_text()
+        admission = (ROOT / "references/skill-catalog.md").read_text()
+        self.assertIn("Public scope and language", readme)
+        self.assertIn("customer records", readme)
+        self.assertIn("separate private repository", policy)
+        self.assertIn("Público ou interno", admission)
+        self.assertIn("AGPL-3.0-or-later", readme)
+
     def test_every_source_file_has_spdx_or_narrow_annotation(self):
         annotated = {
             "plugin.json", ".agents/plugins/marketplace.json", ".claude-plugin/plugin.json",
