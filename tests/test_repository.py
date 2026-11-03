@@ -72,6 +72,7 @@ class PluginContractTest(unittest.TestCase):
         self.assertIn("LibreCodeCoop/.github", (ROOT / "AGENTS.md").read_text())
         self.assertIn("ZIP", (ROOT / "README.md").read_text())
         self.assertTrue((ROOT / ".github/CODEOWNERS").is_file())
+        self.assertIn("@LibreCodeCoop/maintainers", (ROOT / ".github/CODEOWNERS").read_text())
         self.assertTrue((ROOT / "SECURITY.md").is_file())
 
     def test_every_source_file_has_spdx_or_narrow_annotation(self):
