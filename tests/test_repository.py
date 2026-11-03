@@ -48,7 +48,11 @@ class PluginContractTest(unittest.TestCase):
             self.assertRegex(frontmatter, r"(?m)^description: .{60,}")
             self.assertRegex(frontmatter.lower(), r"criar|inicializar|auditar")
             self.assertIn("bootstrap", frontmatter.lower())
-            self.assertIn("references/untrusted-input.md", text)
+            self.assertIn("references/security-and-supply-chain.md", text)
+            for link in re.findall(r"\]\(([^)]+)\)", text):
+                target = link.split("#", 1)[0]
+                if target and not target.startswith(("https://", "http://")):
+                    self.assertTrue((skill.parent / target).resolve().is_relative_to(skill.parent.resolve()), target)
             self.assertIn("AGPL-3.0-or-later", text)
 
     def test_internal_markdown_links_resolve(self):
