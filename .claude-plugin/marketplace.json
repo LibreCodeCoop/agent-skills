@@ -1,0 +1,11 @@
+{
+  "name": "librecode-agent-skills",
+  "description": "LibreCode Coop reusable engineering skills, with bilingual discovery metadata.",
+  "owner": {"name": "LibreCode Coop and contributors"},
+  "plugins": [{
+    "name": "librecode-agent-skills",
+    "source": "./",
+    "description": "Institutional engineering skills for LibreCode Coop project bootstrap, repository audits, and supply-chain quality. Metadados bilíngues; conteúdo operacional em português.",
+    "category": "productivity"
+  }]
+}
