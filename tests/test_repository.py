@@ -89,6 +89,14 @@ class PluginContractTest(unittest.TestCase):
         self.assertIn("Público ou interno", admission)
         self.assertIn("AGPL-3.0-or-later", readme)
 
+    def test_readme_lists_both_skill_catalogs(self):
+        readme = (ROOT / "README.md").read_text()
+        self.assertIn("| Catalog | Skill | What it helps with | Availability |", readme)
+        self.assertIn("[librecode-project-bootstrap](skills/librecode-project-bootstrap/SKILL.md)", readme)
+        self.assertIn("LibreCodeCoop/agent-skills-internal", readme)
+        self.assertIn("No operational skills yet", readme)
+        self.assertIn("restricted access", readme)
+
     def test_every_source_file_has_spdx_or_narrow_annotation(self):
         annotated = {
             "plugin.json", ".agents/plugins/marketplace.json", ".claude-plugin/plugin.json",

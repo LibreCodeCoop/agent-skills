@@ -13,13 +13,16 @@ Public skills cover project creation, open-source collaboration, testing, reprod
 
 English is preferred for **new public-facing instructions** to support international contributors. Skills retain bilingual discovery keywords, may respond in the user's language, and must preserve one authoritative engineering contract. The existing project-bootstrap Skill retains its reviewed Portuguese detailed instructions pending a behavior-verified translation; it is not a second language-specific Skill. See [language policy](references/language-policy.md).
 
-## Skills
+## Skills across LibreCode catalogs
 
-| Skill | Purpose |
-| --- | --- |
-| [librecode-project-bootstrap](skills/librecode-project-bootstrap/SKILL.md) | Bootstrap and audit PHP, Python, JavaScript and Go CLI projects with evidence-based engineering controls; guide other language/framework configurations without destructive overwrites. |
+| Catalog | Skill | What it helps with | Availability |
+| --- | --- | --- | --- |
+| **[Public (this repository)](https://github.com/LibreCodeCoop/agent-skills)** | [librecode-project-bootstrap](skills/librecode-project-bootstrap/SKILL.md) | Creating and reviewing open-source projects with consistent quality, security, and collaboration practices. | Under review in [PR #1](https://github.com/LibreCodeCoop/agent-skills/pull/1) |
+| **[Private internal](https://github.com/LibreCodeCoop/agent-skills-internal)** | No operational skills yet | Future commercial, administrative, and cooperative workflows for authorized LibreCode members. | Catalog in preparation; restricted access |
 
-Admit additional Skills only when their trigger, output, and permission boundary are distinct. See [catalog admission](references/skill-catalog.md).
+The internal repository is accessible only to authorized collaborators. Listing it here does not grant access or expose its contents. **Skills under review are not yet published as installed plugins.**
+
+Admit additional public Skills only when their trigger, output, and permission boundary are distinct. See [catalog admission](references/skill-catalog.md).
 
 ## Install and update from Git
 
