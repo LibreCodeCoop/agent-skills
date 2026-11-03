@@ -29,14 +29,14 @@ def source_header(language: str, copyright_holder: str, license_id: str) -> str:
     prefix = "//" if language in {"php", "javascript", "go"} else "#"
     return (
         f"{prefix} SPDX-FileCopyrightText: {YEAR} {copyright_holder}\n"
-        f"{prefix} SPDX-License-Identifier: {license_id}\n"
+        f"{prefix} SPDX-" f"License-Identifier: {license_id}\n"
     )
 
 
 def markdown_header(owner: str, license_id: str) -> str:
     return (
         f"<!-- SPDX-FileCopyrightText: {YEAR} {owner} -->\n"
-        f"<!-- SPDX-License-Identifier: {license_id} -->\n\n"
+        f"<!-- SPDX-" f"License-Identifier: {license_id} -->\n\n"
     )
 
 
@@ -285,7 +285,7 @@ def create(args: argparse.Namespace) -> dict[str, object]:
     # Only JSON manifests need explicit annotations because JSON has no comment syntax.
     json_manifests = sorted(p for p in files if p.endswith(".json"))
     files["REUSE.toml"] = (
-        f"# SPDX-FileCopyrightText: {YEAR} {owner}\n# SPDX-License-Identifier: {license_id}\n"
+        f"# SPDX-FileCopyrightText: {YEAR} {owner}\n# SPDX-" f"License-Identifier: {license_id}\n"
         "version = 1\n"
     )
     if json_manifests:

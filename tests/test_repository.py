@@ -89,7 +89,7 @@ class PluginContractTest(unittest.TestCase):
             if path.suffix == ".pyc":
                 continue
             data = path.read_text()
-            self.assertIn("SPDX-License-Identifier:", data[:1200], rel)
+            self.assertIn("SPDX-" + "License-Identifier:", data[:1200], rel)
             self.assertIn("SPDX-FileCopyrightText:", data[:1200], rel)
         reuse = (ROOT / "REUSE.toml").read_text()
         for rel in annotated:

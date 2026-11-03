@@ -60,7 +60,7 @@ class BootstrapTest(unittest.TestCase):
         project, summary = self.generate("php", "8.2")
         self.assertTrue((project / "composer.json").is_file())
         self.assertEqual(json.loads((project / "composer.json").read_text())["license"], "AGPL-3.0-or-later")
-        self.assertIn("SPDX-License-Identifier: AGPL-3.0-or-later", (project / "src/Application.php").read_text())
+        self.assertIn("SPDX-" + "License-Identifier: AGPL-3.0-or-later", (project / "src/Application.php").read_text())
         lint = run("php", "tools/lint.php", cwd=project)
         self.assertEqual(lint.returncode, 0, lint.stdout + lint.stderr)
         tests = run("php", "tests/run.php", cwd=project)
@@ -81,7 +81,7 @@ class BootstrapTest(unittest.TestCase):
     @unittest.skipUnless(shutil.which("go"), "Go is not installed")
     def test_go_cli(self):
         project, _ = self.generate("go", "1.23")
-        self.assertIn("SPDX-License-Identifier: AGPL-3.0-or-later", (project / "go.mod").read_text())
+        self.assertIn("SPDX-" + "License-Identifier: AGPL-3.0-or-later", (project / "go.mod").read_text())
         self.assertEqual(run("go", "vet", "./...", cwd=project).returncode, 0)
         tests = run("go", "test", "./...", cwd=project)
         self.assertEqual(tests.returncode, 0, tests.stdout + tests.stderr)
